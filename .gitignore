@@ -1,0 +1,14 @@
+## editor settings
+.vscode
+
+## env
+.env
+scripts/config/config.json
+
+## dependencies
+node_modules
+
+## build artifacts
+public
+dist
+src/bundleVisualizer.html

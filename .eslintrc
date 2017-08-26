@@ -1,0 +1,15 @@
+{
+    "extends": "eslint-config-monolambda",
+    "rules": {
+        "no-console": "warn",
+        "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }]
+    },
+    "settings": {
+        "react": {
+            "pragma": "h"
+        }
+    },
+    "globals": {
+        "fetch": true
+    }
+}
