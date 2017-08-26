@@ -11,7 +11,7 @@
   "scripts": {
     "cleanup": "rimraf public/",
     "dev": "webpack-dev-server --config ./src/webpack.config.dev.js --progress",
-    "build": "yarn cleanup && export NODE_ENV=production || SET \"NODE_ENV=production\" && webpack --config ./src/webpack.config.prod.js --optimize-minimize --progress --hide-modules --env.cdn=prod",
+    "build": "yarn cleanup && export NODE_ENV=production || SET \"NODE_ENV=production\" && webpack --config ./src/webpack.config.prod.js --optimize-minimize --progress --hide-modules",
     "serve": "yarn build && static public",
     "test": "eslint ./src/ --color",
     "lint": "eslint --fix ./src/ --color",

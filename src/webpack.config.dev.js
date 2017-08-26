@@ -7,9 +7,9 @@ module.exports = {
     devtool: 'cheap-module-source-map',
     entry: {
         landingPage: [
-            './src/client/js/app.js',
-            './src/client/styles/app.sass',
-            './src/client/templates/app.pug'
+            './src/js/app.js',
+            './src/styles/app.sass',
+            './src/templates/app.pug'
         ]
     },
     output: {
@@ -88,15 +88,15 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([
-            { from: 'src/client/assets/misc', to: '.' },
+            { from: 'src/assets/misc', to: '.' }
         ]),
         new HtmlWebpackPlugin({
             title: 'App',
             hash: true,
             filename: 'index.html',
-            template: './src/client/templates/app.pug'
+            template: './src/templates/app.pug'
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
+        new webpack.NamedModulesPlugin()
     ]
 }

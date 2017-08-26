@@ -7,8 +7,8 @@ const path = require('path')
 module.exports = env => ({
     entry: {
         landingPage: [
-            './src/client/js/app.js',
-            './src/client/styles/app.sass'
+            './src/js/app.js',
+            './src/styles/app.sass'
         ]
     },
     output: {
@@ -93,7 +93,7 @@ module.exports = env => ({
     },
     plugins: [
         new CopyWebpackPlugin([
-            { from: 'src/client/assets/misc', to: '.' }
+            { from: 'src/assets/misc', to: '.' }
         ]),
         new ExtractTextPlugin({
             filename: '[name].[hash].bundle.css',
@@ -103,7 +103,7 @@ module.exports = env => ({
             title: 'Landing Page',
             hash: true,
             filename: 'index.html',
-            template: './src/client/templates/app.pug'
+            template: './src/templates/app.pug'
         }),
         new webpack.optimize.UglifyJsPlugin()
     ]
