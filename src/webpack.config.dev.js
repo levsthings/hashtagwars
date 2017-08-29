@@ -5,12 +5,12 @@ const path = require('path')
 module.exports = {
     devtool: 'cheap-module-source-map',
     entry: {
-        landingPage: [
+        App: [
             './src/js/app.js'
         ]
     },
     output: {
-        path: path.resolve(__dirname, './'),
+        path: path.resolve(__dirname, '../public'),
         publicPath: '/',
         filename: '[name].bundle.js'
     },
@@ -39,7 +39,6 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            importLoaders: 2,
                             sourceMap: true
                         }
                     },
@@ -67,7 +66,7 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'public'),
+        contentBase: path.join(__dirname, '../public'),
         compress: true,
         hot: true,
         inline: true,
@@ -79,7 +78,8 @@ module.exports = {
             title: 'App',
             hash: true,
             filename: 'index.html',
-            template: './src/templates/app.pug'
+            template: './src/templates/app.pug',
+            inject: 'body'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()

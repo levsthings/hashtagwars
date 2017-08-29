@@ -20,27 +20,27 @@
     @media (max-width: 425px)
         @content
 
-/* Fonts 
-    1- Fonts in containers must use one of mixins as a starting point
-    2- Other properties like size, color, transform can be set per use case
-/*
 
 // Main title (thin)
 @mixin font-title
     font-family: $font-title
     font-weight: $weight-normal
+    color: $title-color
 
 // Title Emphasis (bold)
 @mixin font-title-bold
     font-family: $font-title
     font-weight: $weight-semibold
+    color: $title-color
 
 // Main Text (thin)
 @mixin font-text
     font-family: $font-text
     font-weight: $weight-normal
+    color: $text-color
 
 // Text Emphasis (bold) 
 @mixin font-text-bold
     font-family: $font-text
     font-weight: $weight-bold
+    color: $text-color
