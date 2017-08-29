@@ -2,6 +2,7 @@
 .vscode
 
 ## env
+.arch
 .env
 scripts/config/config.json
 

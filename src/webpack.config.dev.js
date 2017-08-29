@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
 
@@ -7,13 +6,11 @@ module.exports = {
     devtool: 'cheap-module-source-map',
     entry: {
         landingPage: [
-            './src/js/app.js',
-            './src/styles/app.sass',
-            './src/templates/app.pug'
+            './src/js/app.js'
         ]
     },
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, './'),
         publicPath: '/',
         filename: '[name].bundle.js'
     },
@@ -63,13 +60,6 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
                     {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'images/'
-                        }
-                    },
-                    {
                         loader: 'image-webpack-loader'
                     }
                 ]
@@ -78,8 +68,6 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'public'),
-        host: '0.0.0.0',
-        open: true,
         compress: true,
         hot: true,
         inline: true,
@@ -87,9 +75,6 @@ module.exports = {
         stats: 'errors-only'
     },
     plugins: [
-        new CopyWebpackPlugin([
-            { from: 'src/assets/misc', to: '.' }
-        ]),
         new HtmlWebpackPlugin({
             title: 'App',
             hash: true,

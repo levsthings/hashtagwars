@@ -1,12 +1,12 @@
 {
-  "name": "hashtag-battle",
-  "description": "open source front-end for hashtag-battle",
+  "name": "hashtagwars",
+  "description": "open source front-end for hashtagwars",
   "version": "1.0.0",
   "author": "levsthings",
   "license": "Unlicense",
   "repository": {
     "type": "git",
-    "url": "https://github.com/levsthings/hashtag-battle"
+    "url": "https://github.com/levsthings/hashtagwars"
   },
   "scripts": {
     "cleanup": "rimraf public/",
