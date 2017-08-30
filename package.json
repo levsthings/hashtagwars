@@ -62,8 +62,11 @@
   },
   "dependencies": {
     "bulma": "^0.5.1",
+    "chart.js": "^2.6.0",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
+    "react-chartjs-2": "^2.6.1",
     "react-dom": "^15.6.1"
   }
 }

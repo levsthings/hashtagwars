@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Controls from '../components/Controls.jsx'
 import Results from '../components/Results.jsx'
+// import throttle from 'lodash/throttle'
 
 export default class Game extends Component {
     constructor(props) {
@@ -46,7 +47,7 @@ export default class Game extends Component {
         }
     }
     render() {
-        const {firstHashtagValue, secondHashtagValue} = this.state
+        const {firstHashtagValue, secondHashtagValue, firstHashtag, secondHashtag} = this.state
         return (
             <div className='main-screen'>
                 <Controls
@@ -54,8 +55,10 @@ export default class Game extends Component {
                     handleSubmit={() => this.handleSubmit()}
                 />
                 <Results
-                    firstHashtag={firstHashtagValue}
-                    secondHashtag={secondHashtagValue}
+                    firstHashtag={firstHashtag}
+                    firstHashtagValue={firstHashtagValue}
+                    secondHashtag={secondHashtag}
+                    secondHashtagValue={secondHashtagValue}
                 />
             </div>
         )
