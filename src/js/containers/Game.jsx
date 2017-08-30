@@ -7,7 +7,9 @@ export default class Game extends Component {
         super(props)
         this.state = {
             firstHashtag: '',
-            secondHashtag: ''
+            secondHashtag: '',
+            firstHashtagValue: 0,
+            secondHashtagValue: 0
         }
     }
 
@@ -23,19 +25,22 @@ export default class Game extends Component {
         const {firstHashtag, secondHashtag} = this.state
 
         if (firstHashtag && secondHashtag) {
-            console.log(firstHashtag, secondHashtag)
+            this.handleRequest(firstHashtag, secondHashtag)
         }
     }
 
-    handleRequest() {
-        const {firstHashtag, secondHashtag} = this.state
-        console.log(`[${firstHashtag}, ${secondHashtag}]`)
+    handleRequest(first, second) {
         try {
             const ws = new WebSocket('ws://localhost:8080')
-            setTimeout(() => {
-                ws.send(JSON.stringify({tags: [firstHashtag, secondHashtag]}))
-            }, 3000)
-            ws.onmessage = e => console.log(e)
+            // Track connection in state and update button 
+            ws.onopen = () => ws.send(JSON.stringify({tags: [first, second]}))
+            ws.onmessage = (e) => {
+                let parsed = JSON.parse(e.data)
+                this.setState({
+                    firstHashtagValue: parsed[this.state.firstHashtag],
+                    secondHashtagValue: parsed[this.state.secondHashtag]
+                })
+            }
         } catch (error) {
             console.log(error)
         }
@@ -45,7 +50,7 @@ export default class Game extends Component {
     //      2- Update state
     //      3- Pass state as props to Results
     render() {
-        const {firstHashtag, secondHashtag} = this.setState
+        const {firstHashtagValue, secondHashtagValue} = this.state
         return (
             <div className='main-screen'>
                 <Controls
@@ -53,8 +58,8 @@ export default class Game extends Component {
                     handleSubmit={() => this.handleSubmit()}
                 />
                 <Results
-                    firstHashtag={firstHashtag}
-                    secondHashtag={secondHashtag}
+                    firstHashtag={firstHashtagValue}
+                    secondHashtag={secondHashtagValue}
                 />
             </div>
         )
