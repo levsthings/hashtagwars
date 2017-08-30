@@ -14,34 +14,52 @@ export default class Results extends Component {
         const data = (canvas) => {
             const ctx = canvas.getContext("2d")
             
-            const gradient = ctx.createLinearGradient(0, 0, 400, 0)
-            gradient.addColorStop(0, 'rgb(69,104,220)')
-            gradient.addColorStop(1, 'rgb(176,106,179)')
+            const gradient = ctx.createLinearGradient(0, 0, 200, 0)
+            gradient.addColorStop(0, 'rgb(84,158,255)')
+            gradient.addColorStop(1, 'rgb(145,84,255)')
 
-            const gradientTwo = ctx.createLinearGradient(0, 0, 400, 0)
-            gradientTwo.addColorStop(0, 'rgb(252,0,255)')
-            gradientTwo.addColorStop(1, 'rgb(0,219,222)')
+            const gradientTwo = ctx.createLinearGradient(0, 0, 200, 0)
+            gradientTwo.addColorStop(0, 'rgb(211,131,18)')
+            gradientTwo.addColorStop(1, 'rgb(168,50,121)')
             
 
             return {
                 labels: [this.props.firstHashtag, this.props.secondHashtag],
                 datasets: [{
-                    label: 'dataset',
+                    label: 'mentions',
                     data: [this.props.firstHashtagValue, this.props.secondHashtagValue],
-                    backgroundColor: [gradient, gradientTwo]
+                    backgroundColor: [gradient, gradientTwo],
+                    hoverBackgroundColor: ['rgba(145,84,255, 0.6)', 'rgba(168,50,121, 0.6)']
                 }]
             }
         }
         const options = {
-            title: {
-                display: true,
-                text: 'hashtags'
+            legend: {
+                display: false
+            },
+            drawBorder: true,
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        fontSize: 15,
+                        stepSize: 1,
+                        fontFamily: 'Lato',
+                        fontColor: '#8690a6'
+                    },
+                }],
+                    yAxes: [{
+                        ticks: {
+                            fontSize: 14,
+                            fontFamily: 'Fira Sans',
+                            fontColor: '#8690a6'
+                        },
+                }]
             },
             maintainAspectRatio: true
         }
         return (
-            <div className='columns'>
-                <div className='column is-6 is-offset-3 has-text-centered'>
+            <div className='htw-game-results columns'>
+                <div className='column is-10 is-offset-1 has-text-centered'>
                     <HorizontalBar 
                         height={100}
                         data={data}

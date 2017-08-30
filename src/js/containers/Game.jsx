@@ -9,8 +9,8 @@ export default class Game extends Component {
         this.state = {
             firstHashtag: '',
             secondHashtag: '',
-            firstHashtagValue: 0,
-            secondHashtagValue: 0
+            firstHashtagValue: 10,
+            secondHashtagValue: 10
         }
     }
 
@@ -49,7 +49,7 @@ export default class Game extends Component {
     render() {
         const {firstHashtagValue, secondHashtagValue, firstHashtag, secondHashtag} = this.state
         return (
-            <div className='main-screen'>
+            <div className='htw-main-screen'>
                 <Controls
                     handleInput={(event) => this.handleInput(event)}
                     handleSubmit={() => this.handleSubmit()}

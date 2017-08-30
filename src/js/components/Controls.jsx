@@ -31,7 +31,7 @@ export default class Controls extends Component {
                 </div>
                 <div className='has-text-centered'>
                     <button
-                        className={`button is-medium is-primary`}
+                        className={`htw-controls-button button is-medium`}
                         onClick={event => this.props.handleSubmit()}
                     >
                         Fight!
