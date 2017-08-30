@@ -45,10 +45,6 @@ export default class Game extends Component {
             console.log(error)
         }
     }
-    // TODO: 
-    //      1- Pass update and request functions down to Controls
-    //      2- Update state
-    //      3- Pass state as props to Results
     render() {
         const {firstHashtagValue, secondHashtagValue} = this.state
         return (
