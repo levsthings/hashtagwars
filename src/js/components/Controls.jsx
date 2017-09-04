@@ -5,7 +5,21 @@ import PropTypes from 'prop-types'
 export default class Controls extends Component {
     static propTypes = {
         handleInput: PropTypes.func.isRequired,
-        handleSubmit: PropTypes.func.isRequired
+        handleSubmit: PropTypes.func.isRequired,
+        emitCloseRequest: PropTypes.func.isRequired,
+        socketConnection: PropTypes.bool.isRequired
+    }
+
+    renderButton() {
+        return (!this.props.socketConnection)
+            ? 'Fight'
+            : 'Reset'
+    }
+
+    submitRole() {
+        return (!this.props.socketConnection)
+            ? this.props.handleSubmit()
+            : this.props.emitCloseRequest()
     }
 
     render() {
@@ -32,9 +46,9 @@ export default class Controls extends Component {
                 <div className='has-text-centered'>
                     <button
                         className={`htw-controls-button button is-medium`}
-                        onClick={event => this.props.handleSubmit()}
+                        onClick={event => this.submitRole()}
                     >
-                        Fight!
+                        {this.renderButton()}
                     </button>
                 </div>
             </div>

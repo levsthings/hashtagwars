@@ -9,8 +9,10 @@ export default class Game extends Component {
         this.state = {
             firstHashtag: '',
             secondHashtag: '',
-            firstHashtagValue: 10,
-            secondHashtagValue: 10
+            firstHashtagValue: 0,
+            secondHashtagValue: 0,
+            socketConnection: false,
+            isCloseEmitted: false
         }
     }
 
@@ -23,9 +25,9 @@ export default class Game extends Component {
     }
 
     handleSubmit() {
-        const {firstHashtag, secondHashtag} = this.state
+        const {firstHashtag, secondHashtag, socketConnection} = this.state
 
-        if (firstHashtag && secondHashtag) {
+        if (firstHashtag && secondHashtag && !socketConnection) {
             this.handleRequest(firstHashtag, secondHashtag)
         }
     }
@@ -33,8 +35,11 @@ export default class Game extends Component {
     handleRequest(first, second) {
         try {
             const ws = new WebSocket('ws://localhost:8080')
-            // Track connection in state and update button 
-            ws.onopen = () => ws.send(JSON.stringify({tags: [first, second]}))
+
+            ws.onopen = () => {
+                ws.send(JSON.stringify({tags: [first, second]}))
+                this.setState({socketConnection: true})
+            }
             ws.onmessage = (e) => {
                 let parsed = JSON.parse(e.data)
                 this.setState({
@@ -42,17 +47,40 @@ export default class Game extends Component {
                     secondHashtagValue: parsed[this.state.secondHashtag]
                 })
             }
+            ws.onclose = () => {
+                this.setState({
+                    socketConnection: false,
+                    isCloseEmitted: false
+                })
+                console.log('connection closed')
+            }
+            if (this.state.isCloseEmitted === true) {
+                ws.close()
+            }
         } catch (error) {
             console.log(error)
         }
     }
+    
+    emitCloseRequest() {
+        this.setState({
+            isCloseEmitted: true
+        })
+    }
     render() {
-        const {firstHashtagValue, secondHashtagValue, firstHashtag, secondHashtag} = this.state
+        const {firstHashtagValue,
+            secondHashtagValue,
+            firstHashtag,
+            secondHashtag,
+            socketConnection
+        } = this.state
         return (
             <div className='htw-main-screen'>
                 <Controls
                     handleInput={(event) => this.handleInput(event)}
                     handleSubmit={() => this.handleSubmit()}
+                    
+                    socketConnection={socketConnection}
                 />
                 <Results
                     firstHashtag={firstHashtag}

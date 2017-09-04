@@ -41,10 +41,11 @@ export default class Results extends Component {
             scales: {
                 xAxes: [{
                     ticks: {
-                        fontSize: 15,
+                        fontSize: 11,
                         stepSize: 1,
                         fontFamily: 'Lato',
-                        fontColor: '#8690a6'
+                        fontColor: '#8690a6',
+                        beginAtZero: true
                     },
                 }],
                     yAxes: [{
