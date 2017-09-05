@@ -61,7 +61,7 @@ export default class Results extends Component {
         }
         return (
             <div className='htw-scene-results columns'>
-                <div className='column is-10 is-offset-1 has-text-centered'>
+                <div className='column is-10 is-offset-1 is-10-mobile is-offset-1-mobile has-text-centered'>
                     <HorizontalBar 
                         height={400}
                         data={data}

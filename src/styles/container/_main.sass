@@ -2,8 +2,8 @@
     font-size: 3rem
 
 .htw-header
-    margin-bottom: 5vh
     height: 7.5vh
+    margin-bottom: 5vh
 
 .htw-main-screen
     height: 90vh
@@ -12,29 +12,29 @@
     margin-top: 2.5rem
     max-height: 60vh
 
-.htw-controls-first, .htw-controls-second
+.htw-controls
     margin-top: 1rem
     &:focus
-        border-width: 1.5px
         border-color: darken($pink, 2%)
+        border-width: 1.5px
 
 .htw-controls-button
     background-color: $pink
     border-color: $pink
     +font-text-bold
-    color: white
     font-size: 1rem !important
+    color: white
     &:hover, &:focus
-        border-color: lighten($pink, 5%)
-        background-color: $pink
+        background-color: darken($pink, 5%)
+        border-color: darken($pink, 10%)
 
 .htw-notification
-    position: absolute
     bottom: 0
     left: 0
-    right: 0
     margin-left: auto
     margin-right: auto
+    position: absolute
+    right: 0
     width: 50vw
 
 .htw-notification-header

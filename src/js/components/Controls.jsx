@@ -26,19 +26,19 @@ export default class Controls extends Component {
         return (
             <div className='htw-scene-controls'>
                 <div className='columns'>
-                    <div className='column is-3 is-offset-3 has-text-centered'>
+                    <div className='column is-3 is-offset-3 is-10-mobile is-offset-1-mobile has-text-centered '>
                         <h4>First Hashtag</h4>
                         <input
                             name="firstHashtag"
-                            className='htw-controls-first input is-medium' type='text' placeholder='#hashtag'
+                            className='htw-controls input is-medium' type='text' placeholder='#hashtag'
                             onInput={event => this.props.handleInput(event)}
                         />
                     </div>
-                    <div className='column is-3 has-text-centered'>
+                    <div className='column is-3 is-10-mobile is-offset-1-mobile has-text-centered '>
                         <h4>Second Hashtag</h4>
                         <input
                             name="secondHashtag"
-                            className='htw-controls-second input is-medium' type='text' placeholder='#hashtag'
+                            className='htw-controls input is-medium' type='text' placeholder='#hashtag'
                             onInput={event => this.props.handleInput(event)}
                         />
                     </div>
