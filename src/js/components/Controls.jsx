@@ -13,7 +13,7 @@ export default class Controls extends Component {
     renderButton() {
         return (!this.props.socketConnection)
             ? 'Fight'
-            : 'Reset'
+            : 'Stop'
     }
 
     submitRole() {

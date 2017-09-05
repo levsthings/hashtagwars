@@ -33,40 +33,39 @@ export default class Game extends Component {
     }
 
     handleRequest(first, second) {
-        try {
-            const ws = new WebSocket('ws://localhost:8080')
+        const ws = new WebSocket('ws://localhost:8081')
 
-            ws.onopen = () => {
-                ws.send(JSON.stringify({tags: [first, second]}))
-                this.setState({socketConnection: true})
-            }
-            ws.onmessage = (e) => {
-                let parsed = JSON.parse(e.data)
-                this.setState({
-                    firstHashtagValue: parsed[this.state.firstHashtag],
-                    secondHashtagValue: parsed[this.state.secondHashtag]
-                })
-            }
-            ws.onclose = () => {
-                this.setState({
-                    socketConnection: false,
-                    isCloseEmitted: false
-                })
-                console.log('connection closed')
-            }
-            if (this.state.isCloseEmitted === true) {
-                ws.close()
-            }
-        } catch (error) {
-            console.log(error)
+        ws.onopen = () => {
+            ws.send(JSON.stringify({tags: [first, second]}))
+            this.setState({socketConnection: true})
         }
+
+        ws.onmessage = (e) => {
+            let parsed = JSON.parse(e.data)
+            this.setState({
+                firstHashtagValue: parsed[this.state.firstHashtag],
+                secondHashtagValue: parsed[this.state.secondHashtag]
+            })
+            // If close request is emitted, close on next message event
+            if (this.state.isCloseEmitted) ws.close()
+        }
+
+        ws.onclose = () => {
+            this.setState({
+                socketConnection: false,
+                isCloseEmitted: false
+            })
+        }
+
+        ws.onerror = () => ws.close()
     }
-    
+
     emitCloseRequest() {
         this.setState({
             isCloseEmitted: true
         })
     }
+
     render() {
         const {firstHashtagValue,
             secondHashtagValue,
@@ -79,8 +78,8 @@ export default class Game extends Component {
                 <Controls
                     handleInput={(event) => this.handleInput(event)}
                     handleSubmit={() => this.handleSubmit()}
-                    
                     socketConnection={socketConnection}
+                    emitCloseRequest={() => this.emitCloseRequest()}
                 />
                 <Results
                     firstHashtag={firstHashtag}
