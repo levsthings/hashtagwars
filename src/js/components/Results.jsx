@@ -57,13 +57,13 @@ export default class Results extends Component {
                         },
                 }]
             },
-            maintainAspectRatio: true
+            maintainAspectRatio: false
         }
         return (
             <div className='htw-scene-results columns'>
                 <div className='column is-10 is-offset-1 has-text-centered'>
                     <HorizontalBar 
-                        height={100}
+                        height={400}
                         data={data}
                         options={options}
                      />

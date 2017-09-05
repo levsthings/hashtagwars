@@ -5,7 +5,7 @@ import Game from './Game.jsx'
 export default class App extends Component {
     render() {
         return (
-            <div>
+            <div className='htw-app'>
                 <Header />
                 <Game />
             </div>
