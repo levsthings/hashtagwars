@@ -2,6 +2,19 @@
 # yarn lockfile v1
 
 
+"@monolambda/eslint-config@^1.4.6":
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/@monolambda/eslint-config/-/eslint-config-1.4.6.tgz#052aa805fb1aef4f9368199f1af87be41615feea"
+  dependencies:
+    eslint "^4.5.0"
+    eslint-config-standard "^10.2.1"
+    eslint-config-standard-react "^5.0.0"
+    eslint-plugin-import "^2.7.0"
+    eslint-plugin-node "^5.1.1"
+    eslint-plugin-promise "^3.5.0"
+    eslint-plugin-react "^7.2.1"
+    eslint-plugin-standard "^3.0.1"
+
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
@@ -2272,19 +2285,6 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-monolambda@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-monolambda/-/eslint-config-monolambda-1.3.0.tgz#59652527ab0a03246c528da5d548598c2afe7188"
-  dependencies:
-    eslint "^4.4.1"
-    eslint-config-standard "^10.2.1"
-    eslint-config-standard-react "^5.0.0"
-    eslint-plugin-import "^2.7.0"
-    eslint-plugin-node "^5.1.1"
-    eslint-plugin-promise "^3.5.0"
-    eslint-plugin-react "^7.2.0"
-    eslint-plugin-standard "^3.0.1"
-
 eslint-config-standard-jsx@^4.0.0:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/eslint-config-standard-jsx/-/eslint-config-standard-jsx-4.0.2.tgz#009e53c4ddb1e9ee70b4650ffe63a7f39f8836e1"
@@ -2341,7 +2341,7 @@ eslint-plugin-promise@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-3.5.0.tgz#78fbb6ffe047201627569e85a6c5373af2a68fca"
 
-eslint-plugin-react@^7.2.0:
+eslint-plugin-react@^7.2.1:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.3.0.tgz#ca9368da36f733fbdc05718ae4e91f778f38e344"
   dependencies:
@@ -2361,7 +2361,7 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@^4.4.1, eslint@^4.5.0:
+eslint@^4.5.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.6.1.tgz#ddc7fc7fd70bf93205b0b3449bb16a1e9e7d4950"
   dependencies:

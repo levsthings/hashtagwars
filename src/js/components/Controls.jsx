@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 // import Fight from '../../img/fight.svg'
 
-export default class Controls extends Component {
+export default class Controls extends PureComponent {
     static propTypes = {
         handleInput: PropTypes.func.isRequired,
         handleSubmit: PropTypes.func.isRequired,
@@ -29,7 +29,7 @@ export default class Controls extends Component {
                     <div className='column is-3 is-offset-3 is-10-mobile is-offset-1-mobile has-text-centered '>
                         <h4>First Hashtag</h4>
                         <input
-                            name="firstHashtag"
+                            name='firstHashtag'
                             className='htw-controls input is-medium' type='text' placeholder='#hashtag'
                             onInput={event => this.props.handleInput(event)}
                         />
@@ -37,7 +37,7 @@ export default class Controls extends Component {
                     <div className='column is-3 is-10-mobile is-offset-1-mobile has-text-centered '>
                         <h4>Second Hashtag</h4>
                         <input
-                            name="secondHashtag"
+                            name='secondHashtag'
                             className='htw-controls input is-medium' type='text' placeholder='#hashtag'
                             onInput={event => this.props.handleInput(event)}
                         />

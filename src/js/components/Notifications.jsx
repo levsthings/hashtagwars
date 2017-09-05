@@ -17,7 +17,7 @@ export default class Notifications extends Component {
                     <div className='htw-notification column is-3-desktop is-6'>
                         <article className='message is-warning is-small'>
                             <div className='message-header'>
-                                <p className='htw-notification-header'>${title}</p>
+                                <p className='htw-notification-header'>{title}</p>
                                 <button className='delete is-small' aria-label='delete' />
                             </div>
                             <div className='message-body'>

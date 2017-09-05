@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import {HorizontalBar} from 'react-chartjs-2'
 
-export default class Results extends Component {
+export default class Results extends PureComponent {
     static propTypes = {
         firstHashtagValue: PropTypes.number.isRequired,
         secondHashtagValue: PropTypes.number.isRequired,
@@ -12,13 +12,13 @@ export default class Results extends Component {
 
     render() {
         const data = (canvas) => {
-            let ctx = canvas.getContext('2d')
+            const ctx = canvas.getContext('2d')
 
-            let gradient = ctx.createLinearGradient(0, 0, 800, 0)
+            const gradient = ctx.createLinearGradient(0, 0, 800, 0)
             gradient.addColorStop(0, 'rgb(84,158,255)')
             gradient.addColorStop(1, 'rgb(145,84,255)')
 
-            let gradientTwo = ctx.createLinearGradient(0, 0, 800, 0)
+            const gradientTwo = ctx.createLinearGradient(0, 0, 800, 0)
             gradientTwo.addColorStop(0, 'rgb(211,131,18)')
             gradientTwo.addColorStop(1, 'rgb(168,50,121)')
 

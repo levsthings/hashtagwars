@@ -54,7 +54,7 @@ export default class Game extends Component {
         }
 
         ws.onmessage = (e) => {
-            let parsed = JSON.parse(e.data)
+            const parsed = JSON.parse(e.data)
             this.setState({
                 firstHashtagValue: parsed[this.state.firstHashtag],
                 secondHashtagValue: parsed[this.state.secondHashtag]
@@ -75,7 +75,16 @@ export default class Game extends Component {
             })
         }
 
-        ws.onerror = () => ws.close()
+        ws.onerror = () => {
+            this.setState({
+                notification: {
+                    state: true,
+                    title: 'Error',
+                    message: 'Could not establish connection, try again later.'
+                }
+            })
+            ws.close()
+        }
     }
 
     emitCloseRequest() {
@@ -96,7 +105,7 @@ export default class Game extends Component {
         return (
             <div className='htw-main-screen'>
                 <Controls
-                    handleInput={(event) => this.handleInput(event)}
+                    handleInput={event => this.handleInput(event)}
                     handleSubmit={() => this.handleSubmit()}
                     socketConnection={socketConnection}
                     emitCloseRequest={() => this.emitCloseRequest()}
