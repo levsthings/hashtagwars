@@ -10,15 +10,16 @@ export default class Results extends Component {
         firstHashtag: PropTypes.string,
         secondHashtag: PropTypes.string
     }
+
     render() {
         const data = (canvas) => {
-            const ctx = canvas.getContext("2d")
+            let ctx = canvas.getContext("2d")
             
-            const gradient = ctx.createLinearGradient(0, 0, 200, 0)
+            let gradient = ctx.createLinearGradient(0, 0, 800, 0)
             gradient.addColorStop(0, 'rgb(84,158,255)')
             gradient.addColorStop(1, 'rgb(145,84,255)')
 
-            const gradientTwo = ctx.createLinearGradient(0, 0, 200, 0)
+            let gradientTwo = ctx.createLinearGradient(0, 0, 800, 0)
             gradientTwo.addColorStop(0, 'rgb(211,131,18)')
             gradientTwo.addColorStop(1, 'rgb(168,50,121)')
             
@@ -41,7 +42,7 @@ export default class Results extends Component {
             scales: {
                 xAxes: [{
                     ticks: {
-                        fontSize: 11,
+                        fontSize: 9,
                         stepSize: 1,
                         fontFamily: 'Lato',
                         fontColor: '#8690a6',
@@ -59,7 +60,7 @@ export default class Results extends Component {
             maintainAspectRatio: true
         }
         return (
-            <div className='htw-game-results columns'>
+            <div className='htw-scene-results columns'>
                 <div className='column is-10 is-offset-1 has-text-centered'>
                     <HorizontalBar 
                         height={100}

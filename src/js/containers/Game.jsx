@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Controls from '../components/Controls.jsx'
 import Results from '../components/Results.jsx'
+import Notifications from '../components/Notifications.jsx'
 // import throttle from 'lodash/throttle'
 
 export default class Game extends Component {
@@ -87,6 +88,7 @@ export default class Game extends Component {
                     secondHashtag={secondHashtag}
                     secondHashtagValue={secondHashtagValue}
                 />
+                <Notifications />
             </div>
         )
     }

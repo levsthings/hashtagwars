@@ -8,15 +8,22 @@
 .htw-main-screen
     height: 90vh
 
-.htw-game-results
+.htw-scene-results
     margin-top: 2.5rem
 
+.htw-controls-first, .htw-controls-second
+    margin-top: 1rem
+    &:focus
+        border-width: 1.5px
+        border-color: darken(#a83279, 2%)
+
+
 .htw-controls-button
-    background-color: $text-color
-    border-color: $text-color
+    background-color: #a83279
+    border-color: #a83279
     +font-text-bold
     color: white
     font-size: 1rem !important
-    &:hover
-        background-color: lighten($text-color, 5%)
-        border-color: lighten($text-color, 5%)
+    &:hover, &:focus
+        border-color: lighten(#a83279, 5%)
+        background-color: #a83279

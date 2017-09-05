@@ -30,7 +30,7 @@ export default class Controls extends Component {
                         <h4>First Hashtag</h4>
                         <input
                             name="firstHashtag"
-                            className='input is-medium' type='text' placeholder='#hashtag'
+                            className='htw-controls-first input is-medium' type='text' placeholder='#hashtag'
                             onInput={event => this.props.handleInput(event)}
                         />
                     </div>
@@ -38,7 +38,7 @@ export default class Controls extends Component {
                         <h4>Second Hashtag</h4>
                         <input
                             name="secondHashtag"
-                            className='input is-medium' type='text' placeholder='#hashtag'
+                            className='htw-controls-second input is-medium' type='text' placeholder='#hashtag'
                             onInput={event => this.props.handleInput(event)}
                         />
                     </div>
