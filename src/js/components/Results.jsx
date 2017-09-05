@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import {HorizontalBar} from 'react-chartjs-2'
 
@@ -13,8 +12,8 @@ export default class Results extends Component {
 
     render() {
         const data = (canvas) => {
-            let ctx = canvas.getContext("2d")
-            
+            let ctx = canvas.getContext('2d')
+
             let gradient = ctx.createLinearGradient(0, 0, 800, 0)
             gradient.addColorStop(0, 'rgb(84,158,255)')
             gradient.addColorStop(1, 'rgb(145,84,255)')
@@ -22,7 +21,6 @@ export default class Results extends Component {
             let gradientTwo = ctx.createLinearGradient(0, 0, 800, 0)
             gradientTwo.addColorStop(0, 'rgb(211,131,18)')
             gradientTwo.addColorStop(1, 'rgb(168,50,121)')
-            
 
             return {
                 labels: [this.props.firstHashtag, this.props.secondHashtag],
@@ -47,14 +45,14 @@ export default class Results extends Component {
                         fontFamily: 'Lato',
                         fontColor: '#8690a6',
                         beginAtZero: true
-                    },
+                    }
                 }],
-                    yAxes: [{
-                        ticks: {
-                            fontSize: 14,
-                            fontFamily: 'Fira Sans',
-                            fontColor: '#8690a6'
-                        },
+                yAxes: [{
+                    ticks: {
+                        fontSize: 14,
+                        fontFamily: 'Fira Sans',
+                        fontColor: '#8690a6'
+                    }
                 }]
             },
             maintainAspectRatio: false
@@ -62,11 +60,11 @@ export default class Results extends Component {
         return (
             <div className='htw-scene-results columns'>
                 <div className='column is-10 is-offset-1 is-10-mobile is-offset-1-mobile has-text-centered'>
-                    <HorizontalBar 
+                    <HorizontalBar
                         height={400}
                         data={data}
                         options={options}
-                     />
+                    />
                 </div>
             </div>
         )

@@ -13,7 +13,12 @@ export default class Game extends Component {
             firstHashtagValue: 0,
             secondHashtagValue: 0,
             socketConnection: false,
-            isCloseEmitted: false
+            isCloseEmitted: false,
+            notification: {
+                state: false,
+                title: '',
+                message: ''
+            }
         }
     }
 
@@ -38,7 +43,14 @@ export default class Game extends Component {
 
         ws.onopen = () => {
             ws.send(JSON.stringify({tags: [first, second]}))
-            this.setState({socketConnection: true})
+            this.setState({
+                socketConnection: true,
+                notification: {
+                    state: true,
+                    title: 'Notification',
+                    message: 'Connection established.'
+                }
+            })
         }
 
         ws.onmessage = (e) => {
@@ -54,7 +66,12 @@ export default class Game extends Component {
         ws.onclose = () => {
             this.setState({
                 socketConnection: false,
-                isCloseEmitted: false
+                isCloseEmitted: false,
+                notification: {
+                    state: true,
+                    title: 'Notification',
+                    message: 'Connection closed.'
+                }
             })
         }
 
@@ -72,8 +89,10 @@ export default class Game extends Component {
             secondHashtagValue,
             firstHashtag,
             secondHashtag,
-            socketConnection
+            socketConnection,
+            notification
         } = this.state
+
         return (
             <div className='htw-main-screen'>
                 <Controls
@@ -88,7 +107,9 @@ export default class Game extends Component {
                     secondHashtag={secondHashtag}
                     secondHashtagValue={secondHashtagValue}
                 />
-                <Notifications />
+                <Notifications
+                    notification={notification}
+                />
             </div>
         )
     }

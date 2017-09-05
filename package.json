@@ -32,9 +32,9 @@
   ],
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chalk": "^2.1.0",
@@ -52,6 +52,7 @@
     "node-sass": "^4.5.3",
     "node-static": "^0.7.9",
     "postcss-loader": "^2.0.5",
+    "prop-types": "^15.5.10",
     "pug": "^2.0.0-rc.2",
     "pug-html-loader": "^1.1.5",
     "rimraf": "^2.6.1",
@@ -63,8 +64,6 @@
   "dependencies": {
     "bulma": "^0.5.1",
     "chart.js": "^2.6.0",
-    "lodash": "^4.17.4",
-    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-chartjs-2": "^2.6.1",
     "react-dom": "^15.6.1"

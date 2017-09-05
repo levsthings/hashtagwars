@@ -1,6 +1,10 @@
 {
+    "parser": "babel-eslint",
     "extends": "eslint-config-monolambda",
     "rules": {
         "no-console": "warn"
+    },
+    "globals": {
+        "WebSocket": true
     }
 }
