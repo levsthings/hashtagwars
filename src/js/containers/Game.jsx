@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Controls from '../components/Controls.jsx'
 import Results from '../components/Results.jsx'
 import Notifications from '../components/Notifications.jsx'
+import {isValid} from '../utils/'
 // import throttle from 'lodash/throttle'
 
 export default class Game extends Component {
@@ -22,6 +23,12 @@ export default class Game extends Component {
         }
     }
 
+    componentDidUpdate() {
+        if (this.state.notification.state) {
+            setTimeout(() => this.handleNotification(false, '', ''), 5000)
+        }
+    }
+
     handleInput(event) {
         const {name, value} = event.target
 
@@ -31,11 +38,11 @@ export default class Game extends Component {
     }
 
     handleSubmit() {
-        const {firstHashtag, secondHashtag, socketConnection} = this.state
+        const {firstHashtag, secondHashtag} = this.state
 
-        if (firstHashtag && secondHashtag && !socketConnection) {
-            this.handleRequest(firstHashtag, secondHashtag)
-        }
+        isValid(firstHashtag) && isValid(secondHashtag)
+            ? this.handleRequest(firstHashtag, secondHashtag)
+            : this.handleNotification(true, 'Error', 'Invalid hashtags')
     }
 
     handleRequest(first, second) {
@@ -44,13 +51,9 @@ export default class Game extends Component {
         ws.onopen = () => {
             ws.send(JSON.stringify({tags: [first, second]}))
             this.setState({
-                socketConnection: true,
-                notification: {
-                    state: true,
-                    title: 'Notification',
-                    message: 'Connection established.'
-                }
+                socketConnection: true
             })
+            this.handleNotification(true, 'Notification', 'Connection established')
         }
 
         ws.onmessage = (e) => {
@@ -63,33 +66,31 @@ export default class Game extends Component {
             if (this.state.isCloseEmitted) ws.close()
         }
 
-        ws.onclose = () => {
+        ws.onclose = (error) => {
             this.setState({
                 socketConnection: false,
-                isCloseEmitted: false,
-                notification: {
-                    state: true,
-                    title: 'Notification',
-                    message: 'Connection closed.'
-                }
+                isCloseEmitted: false
             })
-        }
 
-        ws.onerror = () => {
-            this.setState({
-                notification: {
-                    state: true,
-                    title: 'Error',
-                    message: 'Could not establish connection, try again later.'
-                }
-            })
-            ws.close()
+            error
+                ? this.handleNotification(true, 'Error', 'Could not establish connection, try again later')
+                : this.handleNotification(true, 'Notification', 'Connection closed.')
         }
     }
 
     emitCloseRequest() {
         this.setState({
             isCloseEmitted: true
+        })
+    }
+
+    handleNotification(state, title, message) {
+        this.setState({
+            notification: {
+                state,
+                title,
+                message
+            }
         })
     }
 
@@ -118,6 +119,7 @@ export default class Game extends Component {
                 />
                 <Notifications
                     notification={notification}
+                    handleNotification={(state, title, message) => this.handleNotification(state, title, message)}
                 />
             </div>
         )

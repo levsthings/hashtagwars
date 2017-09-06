@@ -7,7 +7,8 @@ export default class Notifications extends Component {
             state: PropTypes.bool.isRequired,
             title: PropTypes.string.isRequired,
             message: PropTypes.string.isRequired
-        })
+        }),
+        handleNotification: PropTypes.func.isRequired
     }
     render() {
         const { state, title, message } = this.props.notification
@@ -18,7 +19,10 @@ export default class Notifications extends Component {
                         <article className='message is-warning is-small'>
                             <div className='message-header'>
                                 <p className='htw-notification-header'>{title}</p>
-                                <button className='delete is-small' aria-label='delete' />
+                                <button
+                                    className='delete is-small' aria-label='delete'
+                                    onClick={() => this.props.handleNotification(false, '', '')}
+                                />
                             </div>
                             <div className='message-body'>
                                 <p>{message}</p>
