@@ -11,5 +11,3 @@ node_modules
 
 ## build artifacts
 public
-dist
-src/bundleVisualizer.html

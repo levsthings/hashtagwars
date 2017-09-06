@@ -11,7 +11,7 @@
   "scripts": {
     "cleanup": "rimraf public/",
     "dev": "webpack-dev-server --config ./src/webpack.config.dev.js --progress",
-    "build": "yarn cleanup && export NODE_ENV=production || SET \"NODE_ENV=production\" && webpack --config ./src/webpack.config.prod.js --optimize-minimize --progress --hide-modules",
+    "build": "yarn cleanup && export NODE_ENV=production || SET \"NODE_ENV=production\" && webpack --config ./src/webpack.config.prod.js --optimize-minimize --progress",
     "serve": "yarn build && static public",
     "test": "eslint ./src/ --color",
     "lint": "eslint --fix ./src/ --color",
@@ -59,7 +59,8 @@
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "dependencies": {
     "bulma": "^0.5.1",

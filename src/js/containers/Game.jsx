@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Controls from '../components/Controls.jsx'
 import Results from '../components/Results.jsx'
 import Notifications from '../components/Notifications.jsx'
 import {isValid} from '../utils/'
-// import throttle from 'lodash/throttle'
 
 export default class Game extends Component {
     constructor(props) {
