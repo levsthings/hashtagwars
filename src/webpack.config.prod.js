@@ -110,6 +110,7 @@ module.exports = env => ({
                 NODE_ENV: JSON.stringify('production')
             }
         }),
+        new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
         new webpack.optimize.UglifyJsPlugin()
     ]
 })
