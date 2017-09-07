@@ -11,7 +11,7 @@ export default class Notifications extends Component {
         handleNotification: PropTypes.func.isRequired
     }
     render() {
-        const { state, title, message } = this.props.notification
+        const {state, title, message} = this.props.notification
         if (state) {
             return (
                 <div className='columns'>
