@@ -26,7 +26,7 @@ export default class Controls extends PureComponent {
         return (
             <div className='htw-scene-controls'>
                 <div className='columns'>
-                    <div className='column is-3 is-offset-3 is-10-mobile is-offset-1-mobile has-text-centered '>
+                    <div className='column is-3 is-offset-3 is-10-mobile is-offset-1-mobile has-text-centered'>
                         <h4>First Hashtag</h4>
                         <input
                             name='firstHashtag'
@@ -34,7 +34,7 @@ export default class Controls extends PureComponent {
                             onInput={event => this.props.handleInput(event)}
                         />
                     </div>
-                    <div className='column is-3 is-10-mobile is-offset-1-mobile has-text-centered '>
+                    <div className='column is-3 is-10-mobile is-offset-1-mobile has-text-centered'>
                         <h4>Second Hashtag</h4>
                         <input
                             name='secondHashtag'
