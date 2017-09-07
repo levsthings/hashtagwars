@@ -10,13 +10,13 @@ export default class Controls extends PureComponent {
         socketConnection: PropTypes.bool.isRequired
     }
 
-    renderButton() {
+    renderButtonText() {
         return (!this.props.socketConnection)
             ? 'Fight'
             : 'Stop'
     }
 
-    submitRole() {
+    handleButtonRole() {
         return (!this.props.socketConnection)
             ? this.props.handleSubmit()
             : this.props.emitCloseRequest()
@@ -46,9 +46,9 @@ export default class Controls extends PureComponent {
                 <div className='has-text-centered'>
                     <button
                         className={`htw-controls-button button is-medium`}
-                        onClick={event => this.submitRole()}
+                        onClick={event => this.handleButtonRole()}
                     >
-                        {this.renderButton()}
+                        {this.renderButtonText()}
                     </button>
                 </div>
             </div>
