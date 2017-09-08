@@ -13,7 +13,7 @@
     "dev": "webpack-dev-server --config ./src/webpack.config.dev.js --progress",
     "build": "yarn cleanup && export NODE_ENV=production || SET \"NODE_ENV=production\" && webpack --config ./src/webpack.config.prod.js --optimize-minimize --progress",
     "serve": "yarn build && static public",
-    "test": "eslint ./src/ --color",
+    "test": "jest",
     "lint": "eslint --fix ./src/ --color",
     "precommit": "lint-staged"
   },
@@ -25,6 +25,13 @@
     "*.js": [
       "yarn lint",
       "git add"
+    ]
+  },
+  "jest": {
+    "runner": "jest-runner-eslint",
+    "displayName": "lint",
+    "testMatch": [
+      "<rootDir>/src/**/*.{js,jsx}"
     ]
   },
   "browserslist": [
@@ -48,6 +55,8 @@
     "html-webpack-plugin": "^2.28.0",
     "husky": "^0.14.3",
     "image-webpack-loader": "^3.4.0",
+    "jest": "^21.0.2",
+    "jest-runner-eslint": "^0.1.0",
     "lint-staged": "^4.0.4",
     "node-sass": "^4.5.3",
     "node-static": "^0.7.9",
