@@ -50,7 +50,7 @@ export default class Results extends PureComponent {
                 yAxes: [{
                     ticks: {
                         fontSize: 14,
-                        fontFamily: 'Fira Sans',
+                        fontFamily: 'Lato',
                         fontColor: '#8690a6'
                     }
                 }]
