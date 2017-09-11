@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-// import Fight from '../../img/fight.svg'
 
 export default class Controls extends PureComponent {
     static propTypes = {
