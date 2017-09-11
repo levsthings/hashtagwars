@@ -9,10 +9,3 @@ dependencies:
 test:
   override:
     - yarn test
-deployment:
-  production:
-    branch: master
-    commands:
-      - yarn build/production
-      - yarn upload/production
-      - yarn updateCloudfront
