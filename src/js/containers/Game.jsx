@@ -61,7 +61,9 @@ export default class Game extends Component {
                 firstHashtagValue: parsed[this.state.firstHashtag],
                 secondHashtagValue: parsed[this.state.secondHashtag]
             })
-            // If close request is emitted, close on next message event
+            /**
+             * If close request is emitted, close on next message event
+             */
             if (this.state.isCloseEmitted) ws.close()
         }
 

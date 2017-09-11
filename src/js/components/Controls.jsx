@@ -16,7 +16,8 @@ export default class Controls extends PureComponent {
             : 'Stop'
     }
 
-    handleButtonRole() {
+    handleButtonRole(event) {
+        event.preventDefault()
         return (!this.props.socketConnection)
             ? this.props.handleSubmit()
             : this.props.emitCloseRequest()
@@ -25,32 +26,36 @@ export default class Controls extends PureComponent {
     render() {
         return (
             <div className='htw-scene-controls'>
-                <div className='columns'>
-                    <div className='column is-3 is-offset-3 is-10-mobile is-offset-1-mobile has-text-centered'>
-                        <h4>First Hashtag</h4>
-                        <input
-                            name='firstHashtag'
-                            className='htw-controls input is-medium' type='text' placeholder='#hashtag'
-                            onInput={event => this.props.handleInput(event)}
-                        />
+                <form
+                    onSubmit={event => this.handleButtonRole(event)}
+                    noValidate
+                >
+                    <div className='columns'>
+                        <div className='column is-3 is-offset-3 is-10-mobile is-offset-1-mobile has-text-centered'>
+                            <h4>First Hashtag</h4>
+                            <input
+                                name='firstHashtag'
+                                className='htw-controls input is-medium' type='text' placeholder='#hashtag'
+                                onInput={event => this.props.handleInput(event)}
+                            />
+                        </div>
+                        <div className='column is-3 is-10-mobile is-offset-1-mobile has-text-centered'>
+                            <h4>Second Hashtag</h4>
+                            <input
+                                name='secondHashtag'
+                                className='htw-controls input is-medium' type='text' placeholder='#hashtag'
+                                onInput={event => this.props.handleInput(event)}
+                            />
+                        </div>
                     </div>
-                    <div className='column is-3 is-10-mobile is-offset-1-mobile has-text-centered'>
-                        <h4>Second Hashtag</h4>
-                        <input
-                            name='secondHashtag'
-                            className='htw-controls input is-medium' type='text' placeholder='#hashtag'
-                            onInput={event => this.props.handleInput(event)}
-                        />
+                    <div className='has-text-centered'>
+                        <button
+                            className={`htw-controls-button button is-medium`}
+                        >
+                            {this.renderButtonText()}
+                        </button>
                     </div>
-                </div>
-                <div className='has-text-centered'>
-                    <button
-                        className={`htw-controls-button button is-medium`}
-                        onClick={event => this.handleButtonRole()}
-                    >
-                        {this.renderButtonText()}
-                    </button>
-                </div>
+                </form>
             </div>
         )
     }
