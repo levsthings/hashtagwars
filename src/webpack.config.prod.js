@@ -100,7 +100,7 @@ module.exports = env => ({
             allChunks: true
         }),
         new HtmlWebpackPlugin({
-            title: 'Landing Page',
+            title: 'Hashtagwars',
             hash: true,
             filename: 'index.html',
             template: './src/templates/app.pug'
