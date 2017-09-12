@@ -45,7 +45,7 @@ export default class Game extends Component {
     }
 
     handleRequest(first, second) {
-        const ws = new WebSocket('ws://hashtagwars-api.herokuapp.com:80')
+        const ws = new WebSocket('wss://hashtagwars-api.herokuapp.com')
 
         ws.onopen = () => {
             ws.send(JSON.stringify({tags: [first, second]}))
