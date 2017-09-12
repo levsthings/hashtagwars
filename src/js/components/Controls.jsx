@@ -17,7 +17,7 @@ export default class Controls extends PureComponent {
 
     handleButtonRole(event) {
         event.preventDefault()
-        return (!this.props.socketConnection)
+        return !this.props.socketConnection
             ? this.props.handleSubmit()
             : this.props.emitCloseRequest()
     }
