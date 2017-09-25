@@ -4,10 +4,14 @@
 
 ### Project Details
 
-Head to head hashtagwars with React.
+Head to head hashtagwars, made with React.
 
 ### Usage
 
 `yarn dev` for development mode.
 
 `yarn build` for production mode.
+
+### Backend
+
+Backend lives [here.](https://github.com/levsthings/hashtagwars-api/)
