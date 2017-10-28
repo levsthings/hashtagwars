@@ -24,12 +24,20 @@ export default class Results extends PureComponent {
 
             return {
                 labels: [this.props.firstHashtag, this.props.secondHashtag],
-                datasets: [{
-                    label: 'mentions',
-                    data: [this.props.firstHashtagValue, this.props.secondHashtagValue],
-                    backgroundColor: [gradient, gradientTwo],
-                    hoverBackgroundColor: ['rgba(145,84,255, 0.6)', 'rgba(168,50,121, 0.6)']
-                }]
+                datasets: [
+                    {
+                        label: 'mentions',
+                        data: [
+                            this.props.firstHashtagValue,
+                            this.props.secondHashtagValue
+                        ],
+                        backgroundColor: [gradient, gradientTwo],
+                        hoverBackgroundColor: [
+                            'rgba(145,84,255, 0.6)',
+                            'rgba(168,50,121, 0.6)'
+                        ]
+                    }
+                ]
             }
         }
         const options = {
@@ -38,33 +46,33 @@ export default class Results extends PureComponent {
             },
             drawBorder: true,
             scales: {
-                xAxes: [{
-                    ticks: {
-                        fontSize: 9,
-                        stepSize: 1,
-                        fontFamily: 'Lato',
-                        fontColor: '#8690a6',
-                        beginAtZero: true
+                xAxes: [
+                    {
+                        ticks: {
+                            fontSize: 9,
+                            stepSize: 1,
+                            fontFamily: 'Lato',
+                            fontColor: '#8690a6',
+                            beginAtZero: true
+                        }
                     }
-                }],
-                yAxes: [{
-                    ticks: {
-                        fontSize: 14,
-                        fontFamily: 'Lato',
-                        fontColor: '#8690a6'
+                ],
+                yAxes: [
+                    {
+                        ticks: {
+                            fontSize: 14,
+                            fontFamily: 'Lato',
+                            fontColor: '#8690a6'
+                        }
                     }
-                }]
+                ]
             },
             maintainAspectRatio: false
         }
         return (
             <div className='htw-scene-results columns'>
                 <div className='column is-10 is-offset-1 is-10-mobile is-offset-1-mobile has-text-centered'>
-                    <HorizontalBar
-                        height={400}
-                        data={data}
-                        options={options}
-                    />
+                    <HorizontalBar height={400} data={data} options={options} />
                 </div>
             </div>
         )

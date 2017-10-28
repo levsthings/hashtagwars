@@ -5,9 +5,7 @@ const path = require('path')
 module.exports = {
     devtool: 'cheap-module-source-map',
     entry: {
-        App: [
-            './src/js/app.js'
-        ]
+        App: ['./src/js/app.js']
     },
     output: {
         path: path.resolve(__dirname, '../public'),

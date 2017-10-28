@@ -52,7 +52,11 @@ export default class Game extends Component {
             this.setState({
                 socketConnection: true
             })
-            this.handleNotification(true, 'Notification', 'Connection established')
+            this.handleNotification(
+                true,
+                'Notification',
+                'Connection established'
+            )
         }
 
         ws.onmessage = (e) => {
@@ -74,8 +78,16 @@ export default class Game extends Component {
             })
 
             error
-                ? this.handleNotification(true, 'Error', 'Could not establish connection, try again later')
-                : this.handleNotification(true, 'Notification', 'Connection closed.')
+                ? this.handleNotification(
+                    true,
+                    'Error',
+                    'Could not establish connection, try again later'
+                )
+                : this.handleNotification(
+                    true,
+                    'Notification',
+                    'Connection closed.'
+                )
         }
     }
 
@@ -96,7 +108,8 @@ export default class Game extends Component {
     }
 
     render() {
-        const {firstHashtagValue,
+        const {
+            firstHashtagValue,
             secondHashtagValue,
             firstHashtag,
             secondHashtag,
@@ -120,7 +133,8 @@ export default class Game extends Component {
                 />
                 <Notifications
                     notification={notification}
-                    handleNotification={(state, title, message) => this.handleNotification(state, title, message)}
+                    handleNotification={(state, title, message) =>
+                        this.handleNotification(state, title, message)}
                 />
             </div>
         )

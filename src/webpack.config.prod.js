@@ -6,10 +6,7 @@ const path = require('path')
 
 module.exports = env => ({
     entry: {
-        landingPage: [
-            './src/js/app.js',
-            './src/styles/app.sass'
-        ]
+        landingPage: ['./src/js/app.js', './src/styles/app.sass']
     },
     output: {
         path: path.resolve(__dirname, '../public'),
@@ -39,9 +36,7 @@ module.exports = env => ({
                         {
                             loader: 'postcss-loader',
                             options: {
-                                plugins: [
-                                    require('autoprefixer')
-                                ]
+                                plugins: [require('autoprefixer')]
                             }
                         },
                         {
@@ -92,9 +87,7 @@ module.exports = env => ({
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            { from: 'src/misc', to: '.' }
-        ]),
+        new CopyWebpackPlugin([{from: 'src/misc', to: '.'}]),
         new ExtractTextPlugin({
             filename: '[name].[hash].bundle.css',
             allChunks: true

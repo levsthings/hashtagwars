@@ -10,9 +10,7 @@ export default class Controls extends PureComponent {
     }
 
     renderButtonText() {
-        return (!this.props.socketConnection)
-            ? 'Fight'
-            : 'Stop'
+        return !this.props.socketConnection ? 'Fight' : 'Stop'
     }
 
     handleButtonRole(event) {
@@ -34,7 +32,9 @@ export default class Controls extends PureComponent {
                             <h4>First Hashtag</h4>
                             <input
                                 name='firstHashtag'
-                                className='htw-controls input is-medium' type='text' placeholder='#hashtag'
+                                className='htw-controls input is-medium'
+                                type='text'
+                                placeholder='#hashtag'
                                 onInput={event => this.props.handleInput(event)}
                             />
                         </div>
@@ -42,7 +42,9 @@ export default class Controls extends PureComponent {
                             <h4>Second Hashtag</h4>
                             <input
                                 name='secondHashtag'
-                                className='htw-controls input is-medium' type='text' placeholder='#hashtag'
+                                className='htw-controls input is-medium'
+                                type='text'
+                                placeholder='#hashtag'
                                 onInput={event => this.props.handleInput(event)}
                             />
                         </div>
