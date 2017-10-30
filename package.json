@@ -10,10 +10,8 @@
     },
     "scripts": {
         "cleanup": "rimraf public/",
-        "dev":
-            "webpack-dev-server --config ./src/webpack.config.dev.js --progress",
-        "build":
-            "yarn cleanup && export NODE_ENV=production || SET \"NODE_ENV=production\" && webpack --config ./src/webpack.config.prod.js --optimize-minimize --progress",
+        "dev": "webpack-dev-server --config ./src/webpack.config.dev.js --progress",
+        "build": "yarn cleanup && export NODE_ENV=production || SET \"NODE_ENV=production\" && webpack --config ./src/webpack.config.prod.js --optimize-minimize --progress",
         "serve": "yarn build && static public",
         "test": "jest",
         "lint": "eslint --fix ./src/ --color",
@@ -24,14 +22,21 @@
         "yarn": ">=0.27.5"
     },
     "lint-staged": {
-        "*.js": ["yarn lint", "git add"]
+        "*.js": [
+            "yarn lint",
+            "git add"
+        ]
     },
     "jest": {
         "runner": "jest-runner-eslint",
         "displayName": "lint",
-        "testMatch": ["<rootDir>/src/**/*.{js,jsx}"]
+        "testMatch": [
+            "<rootDir>/src/**/*.{js,jsx}"
+        ]
     },
-    "browserslist": ["last 2 versions"],
+    "browserslist": [
+        "last 2 versions"
+    ],
     "devDependencies": {
         "@monolambda/eslint-config": "^1.4.6",
         "babel-core": "^6.26.0",
@@ -69,6 +74,7 @@
     "dependencies": {
         "bulma": "^0.5.1",
         "chart.js": "^2.6.0",
+        "isomorphic-fetch": "^2.2.1",
         "react": "^15.6.1",
         "react-chartjs-2": "^2.6.1",
         "react-dom": "^15.6.1"
